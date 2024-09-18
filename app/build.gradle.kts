@@ -74,4 +74,15 @@ dependencies {
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.compiler)
 
+    implementation(libs.runtime.livedata)
+    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
+
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.play.services)
+
+
+
 }

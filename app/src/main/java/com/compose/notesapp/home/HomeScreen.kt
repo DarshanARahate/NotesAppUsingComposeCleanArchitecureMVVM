@@ -30,11 +30,13 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.compose.notesapp.R
 import com.compose.notesapp.ui.theme.NotesAppUsingComposeCleanArchitecureMVVMTheme
+import com.compose.notesapp.util.Routes
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
-    viewModel: HomeScreenViewModel = viewModel()
+    viewModel: HomeScreenViewModel = viewModel(),
+    navigateNext: (String) -> Unit
 ) {
     val notes = viewModel.notes
 
@@ -57,7 +59,9 @@ fun HomeScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    viewModel.addNewNote()
+//                    viewModel.addNewNote()
+                    val route = Routes.ADD_NOTE
+                    navigateNext(route)
                 },
                 containerColor = MaterialTheme.colorScheme.tertiary
             ) {
@@ -90,7 +94,7 @@ fun HomeScreen(
                             color = Color.White,
                             shape = RoundedCornerShape(10.dp)
                         )
-                        .clip (
+                        .clip(
                             RoundedCornerShape(10.dp)
                         )
                         .clickable {
@@ -109,7 +113,6 @@ fun HomeScreen(
                 }
             }
         }
-
     }
 }
 
@@ -118,7 +121,7 @@ fun HomeScreen(
 fun HomeScreenPreview() {
     NotesAppUsingComposeCleanArchitecureMVVMTheme {
         Surface(color = Color.Gray) {
-            HomeScreen()
+//            HomeScreen()
         }
     }
 }
